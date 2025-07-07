@@ -25,7 +25,7 @@ class AppConfig:
 
 
 
-    TRMNL_BYOS_ROOT = os.path.expanduser('~/terminus')
+    TRMNL_BYOS_ROOT = '/app'
     CHART_OUTPUT_PATH = os.path.join(
     TRMNL_BYOS_ROOT,
     'public',
