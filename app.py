@@ -20,7 +20,7 @@ def main():
 
         print("Pushing to TRMNL web server...")
         # 3. Push to TRMNL web server
-        chart_generator.register_with_terminus()
+        #chart_generator.register_with_terminus()
     else:
         print("Failed to fetch data, skipping chart generation.")
     

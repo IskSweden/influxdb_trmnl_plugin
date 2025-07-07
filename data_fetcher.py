@@ -74,7 +74,7 @@ class InfluxDBFetcher: # Renamed class to follow convention
                             try:
                                 time_str = point["time"]
                                 value = float(point["mean"])
-                                value_in_watt = value * 100 # convert to wattage
+                                value_in_watt = value * 1000 # convert to wattage
                                 time_obj = datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%SZ")
                                 series_data_points.append({
                                     "time": time_obj,

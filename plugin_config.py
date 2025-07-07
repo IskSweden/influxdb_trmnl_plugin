@@ -20,7 +20,7 @@ class AppConfig:
         {"name": "Export", "measurement": "Momentanverbrauch_Export", "field": "value"},
     ]
     # TRMNL configuration
-    CHART_IMAGE_FILE = 'chart.png'
+    CHART_IMAGE_FILE = 'screen.png'
     TRMNL_DEVICE_MAC_COLLAPSED = 'F09E9E9A274C'
 
 

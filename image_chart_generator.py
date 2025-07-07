@@ -53,7 +53,7 @@ class ImageChartGenerator:
         plt.rcParams['grid.color'] = 'black'
         plt.rcParams['grid.alpha'] = 0.5 # A bit transparent for grid
 
-        line_styles = ['-', '--']
+        line_styles = ['-']
 
         for i, data in enumerate(self.data_series_configs):
             series_name = data['name']
@@ -83,7 +83,7 @@ class ImageChartGenerator:
         fig.autofmt_xdate() # Automatically format date labels to prevent overlap
 
         # Add a simple legend
-        ax.legend(frameon=False, loc='upper left', fontsize=10, facecolor='white', edgecolor='white')
+        ax.legend(frameon=False, loc='upper right', fontsize=10, facecolor='white', edgecolor='white')
 
         # Add grid
         ax.grid(True, linestyle=':', alpha=0.7)
