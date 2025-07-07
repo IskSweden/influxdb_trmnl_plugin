@@ -1,7 +1,7 @@
 # ~/db_plugin/influxdb_fetcher.py
 
 from influxdb import InfluxDBClient
-from datetime import datetime 
+from datetime import datetime, timedelta
 
 class InfluxDBFetcher: # Renamed class to follow convention
     def __init__(self, config):
@@ -76,6 +76,7 @@ class InfluxDBFetcher: # Renamed class to follow convention
                                 value = float(point["mean"])
                                 value_in_watt = value * 1000 # convert to wattage
                                 time_obj = datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%SZ")
+                                time_obj = time_obj + timedelta(hours=2) # Adjust for timezone if needed
                                 series_data_points.append({
                                     "time": time_obj,
                                     "value": value_in_watt # Storing converted value

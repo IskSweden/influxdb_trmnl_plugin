@@ -53,7 +53,7 @@ class ImageChartGenerator:
         plt.rcParams['grid.color'] = 'black'
         plt.rcParams['grid.alpha'] = 0.5 # A bit transparent for grid
 
-        line_styles = ['-']
+        line_styles = ['-', '--']
 
         for i, data in enumerate(self.data_series_configs):
             series_name = data['name']

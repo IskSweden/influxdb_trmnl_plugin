@@ -19,8 +19,7 @@ def main():
         chart_generator.generate_chart_image(fetched_data)
 
         print("Pushing to TRMNL web server...")
-        # 3. Push to TRMNL web server
-        #chart_generator.register_with_terminus()
+
     else:
         print("Failed to fetch data, skipping chart generation.")
     
