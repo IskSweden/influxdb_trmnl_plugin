@@ -9,8 +9,8 @@ class AppConfig:
     INFLUXDB_DATABASE = 'reader_62F64_SAM'
 
     # --- Charting Configuration ---
-    CHART_TITLE = "Power (Last 60m)"
-    CHART_X_AXIS_LABEL = "Time"
+    CHART_TITLE = "Watt (Letzte 60 Minuten)"
+    CHART_X_AXIS_LABEL = "Zeit"
     CHART_Y_AXIS_LABEL = "Watt (W)"
     CHART_TIME_RANGE = "60m"
 
@@ -19,15 +19,21 @@ class AppConfig:
         {"name": "Import", "measurement": "Momentanverbrauch_Import", "field": "value"},
         {"name": "Export", "measurement": "Momentanverbrauch_Export", "field": "value"},
     ]
-
-    # --- Output Path for Test (TEMPORARILY TO HOME DIRECTORY) ---
-    # Uncomment the following line to use a specific web server root directory
-    HOME_DIR = os.path.expanduser('~') 
+    # TRMNL configuration
     CHART_IMAGE_FILE = 'chart.png'
-    CHART_OUTPUT_PATH = os.path.join(HOME_DIR, CHART_IMAGE_FILE)
+    TRMNL_DEVICE_MAC_COLLAPSED = 'F09E9E9A274C'
 
-    # TRMNL_WEB_SERVER_ROOT = '/var/www/html' 
-    # CHART_OUTPUT_PATH = os.path.join(TRMNL_WEB_SERVER_ROOT, CHART_IMAGE_FILE) 
+
+
+    TRMNL_BYOS_ROOT = os.path.expanduser('~/terminus')
+    CHART_OUTPUT_PATH = os.path.join(
+    TRMNL_BYOS_ROOT,
+    'public',
+    'assets',
+    'screens',
+    TRMNL_DEVICE_MAC_COLLAPSED,
+    CHART_IMAGE_FILE
+    )
 
 
     TRMNL_WIDTH_PX = 800

@@ -2,7 +2,7 @@
 
 from plugin_config import AppConfig
 from data_fetcher import InfluxDBFetcher
-from image_chart_generator import ImageChartGenerator # Import the new class
+from image_chart_generator import ImageChartGenerator
 
 def main():
     print("Starting data fetching and chart generation...")
@@ -11,16 +11,22 @@ def main():
     fetcher = InfluxDBFetcher(AppConfig)
     fetched_data = fetcher.fetch_data()
     print(f"Fetched Data: {fetched_data}")
-    """
+    
     if fetched_data:
         print(f"Fetched Data: {fetched_data}")
         # 2. Generate Chart Image
         chart_generator = ImageChartGenerator(AppConfig) # Pass config only
         chart_generator.generate_chart_image(fetched_data)
+
+        print("Pushing to TRMNL web server...")
+        # 3. Push to TRMNL web server
+        chart_generator.register_with_terminus()
     else:
         print("Failed to fetch data, skipping chart generation.")
-    """
+    
     print("Process finished.")
+
+
 
 if __name__ == "__main__":
     main()
