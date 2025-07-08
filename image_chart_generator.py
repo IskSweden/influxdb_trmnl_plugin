@@ -5,7 +5,7 @@ import matplotlib.dates as mdates
 from datetime import datetime
 import os
 import subprocess
-import base64
+import time
 
 class ImageChartGenerator:
 
@@ -20,6 +20,22 @@ class ImageChartGenerator:
         self.data_series_configs = config.DATA_SERIES
         self.mac = config.TRMNL_DEVICE_MAC_COLLAPSED
         self.image_file = config.CHART_IMAGE_FILE
+
+
+
+    def ensure_permissions(self, output_path):
+        try:
+            # Make sure the file has correct ownership and permissions
+            os.chown(output_path, os.getuid(), os.getgid())
+            os.chmod(output_path, 0o664)
+
+            # Update the timestamp to trigger TRMNL refresh
+            now = time.time()
+            os.utime(output_path, (now, now))
+
+            print(f"[PostProcess] Set ownership, permissions, and timestamp on {output_path}")
+        except Exception as e:
+            print(f"[PostProcess Error] Could not update file: {e}")
 
 
     def generate_chart_image(self, fetched_data):
@@ -145,3 +161,6 @@ class ImageChartGenerator:
             if temp_pbm_output_path and os.path.exists(temp_pbm_output_path):
                 os.remove(temp_pbm_output_path)
                 print(f"Cleaned up: {temp_pbm_output_path}")
+
+        # Ensure the output file has correct permissions
+        self.ensure_permissions(self.output_path)
