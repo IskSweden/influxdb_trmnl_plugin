@@ -65,7 +65,7 @@ This command installs dependencies and runs the `app.py` entry point every 60 se
 Uses `matplotlib` to draw a line chart of the past 60 minutes.
 Saves it to a temporary `.png`, converts to 1-bit `.pbm`, then back to a final `.png` using `ImageMagick`.
 
- Final path: `public/assets/screens/F09E9E9A274C/screen.png`
+ Final path: `public/assets/screens/<YOURMAC>/screen.png`
 
 
 ## Image output
@@ -100,10 +100,10 @@ Contains centralized settings:
 
 
 ```python
-INFLUXDB_HOST = '192.168.1.215' 
-INFLUXDB_DATABASE = 'reader_62F64_SAM'
-TRMNL_DEVICE_MAC_COLLAPSED = 'F09E9E9A274C' 
-CHART_OUTPUT_PATH = ~/terminus/public/assets/screens/F09E9E9A274C/screen.png
+INFLUXDB_HOST = '192.168.1.1' # CHANGE TO OWN INFLUXDB HOST 
+INFLUXDB_DATABASE = '<YOUR INFLUX BUCKET>'
+TRMNL_DEVICE_MAC_COLLAPSED = 'XXXXXXXXX' 
+CHART_OUTPUT_PATH = ~/terminus/public/assets/screens/<YOURMACCOLLAPSED>/screen.png
 TRMNL_WIDTH_PX = 800
 TRMNL_HEIGHT_PX = 480
 ```
@@ -133,7 +133,7 @@ done
 You can confirm updates via:
 
 ```bash
-`watch stat public/assets/screens/F09E9E9A274C/screen.png`
+`watch stat public/assets/screens/<YOURMAC>/screen.png`
 ```
 
 You should see the `Modify` timestamp update every 60s.
@@ -146,7 +146,7 @@ docker compose logs -f image_chart
 
 Check API exposure:
 ```bash
-curl -s http://localhost:2300/api/display -H "ID: F0:9E:9E:9A:27:4C"`
+curl -s http://localhost:2300/api/display -H "ID: F4:1A:9G:9E:23:4H"`
 ```
 
 ---
