@@ -72,7 +72,7 @@ Saves it to a temporary `.png`, converts to 1-bit `.pbm`, then back to a final `
 
 The generated image is saved using the MAC-specific path, e.g.:
  
-`/app/public/assets/screens/F09E9E9A274C/screen.png`
+`/app/public/assets/screens/<YOURMAC>/screen.png`
 
 File permissions are corrected using:
   `os.chown(...), os.chmod(...), os.utime(...)`
@@ -146,7 +146,7 @@ docker compose logs -f image_chart
 
 Check API exposure:
 ```bash
-curl -s http://localhost:2300/api/display -H "ID: F4:1A:9G:9E:23:4H"`
+curl -s http://localhost:2300/api/display -H "ID: F4:1A:9G:9E:23:4H"` #use own mac address
 ```
 
 ---
