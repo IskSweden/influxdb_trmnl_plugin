@@ -10,6 +10,7 @@ This plugin (`db_plugin`) is a Python-based chart generator integrated into the 
 
 ## File structure
 
+```
 terminus/
 ├── db_plugin/                # Python plugin logic lives here (external_plugin mount)
 │   ├── app.py
@@ -24,7 +25,7 @@ terminus/
 │   └── screen.png            # Final chart consumed by TRMNL screen
 ├── compose.yml               # Defines docker services including image_chart
 └── Dockerfile                # Uses python:3.11-slim as base for image_chart
-
+```
 
 ## Docker integration
 The plugin is run from a dedicated container (`image_chart`) defined in `compose.yml`:
