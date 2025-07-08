@@ -162,5 +162,5 @@ class ImageChartGenerator:
                 os.remove(temp_pbm_output_path)
                 print(f"Cleaned up: {temp_pbm_output_path}")
 
-        # Ensure the output file has correct permissions
-        self.ensure_permissions(self.output_path)
+            # Ensure the output file has correct permissions
+            self.ensure_permissions(self.output_path)
